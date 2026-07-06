@@ -1,0 +1,39 @@
+esphome:
+  name: 4ch_relays
+  friendly_name: 4ch_relays
+
+esp8266:
+  board: esp12e
+  framework:
+    version: recommended
+
+wifi:
+  ssid: Nader_Network
+  password: '01274997116'
+
+captive_portal:
+
+switch:
+  - platform: gpio
+    name: "Relay1"
+    id: my_relay1
+    inverted: true
+    pin: GPIO5
+ 
+  - platform: gpio
+    name: "Relay2"
+    id: my_relay2
+    inverted: true
+    pin: GPIO4
+
+  - platform: gpio
+    name: "Relay3"
+    id: my_relay3
+    inverted: true
+    pin: GPIO13
+
+  - platform: gpio
+    name: "Relay4"
+    id: my_relay4
+    inverted: true
+    pin: GPIO12

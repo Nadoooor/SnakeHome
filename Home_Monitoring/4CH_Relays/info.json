@@ -1,0 +1,9 @@
+{
+  "name": "4CH_Relays",
+  "author": "Nader",
+  "version": "1.0.0",
+  "update": "2026-07-06",
+  "category": "Home Monitoring",
+  "description": "A quick yaml for 4 channel wireless relays",
+  "changelog": []
+}
