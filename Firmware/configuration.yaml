@@ -1,0 +1,79 @@
+
+i2c:
+  sda: GPIO2
+  scl: GPIO3
+  scan: true
+
+
+tca9548a:
+  - address: 0x70 
+    id: multiplexer_hub
+    channels:
+      - bus_id: multiplexer_channel_0
+        channel: 0
+      - bus_id: multiplexer_channel_1
+        channel: 1
+      - bus_id: multiplexer_channel_2
+        channel: 2
+      - bus_id: multiplexer_channel_3
+        channel: 3
+      - bus_id: multiplexer_channel_4
+        channel: 4
+      - bus_id: multiplexer_channel_5
+        channel: 5
+      - bus_id: multiplexer_channel_6
+        channel: 6
+      - bus_id: multiplexer_channel_7
+        channel: 7
+    
+
+
+sensor:
+  - platform: am2320
+    i2c_id: multiplexer_channel_0
+    address: 0x5c 
+    temperature:
+      name: "Room 1 Temperature"
+    humidity:
+      name: "Room 1 Humidity"
+    update_interval: 3s
+  - platform: am2320
+    i2c_id: multiplexer_channel_1
+    address: 0x5c 
+    temperature:
+      name: "Room 2 Temperature"
+    humidity:
+      name: "Room 2 Humidity"
+    update_interval: 3s
+  - platform: am2320
+    i2c_id: multiplexer_channel_2
+    address: 0x5c 
+    temperature:
+      name: "Room 3 Temperature"
+    humidity:
+      name: "Room 3 Humidity"
+    update_interval: 3s
+  - platform: am2320
+    i2c_id: multiplexer_channel_3
+    address: 0x5c 
+    temperature:
+      name: "Kitchen Temperature"
+    humidity:
+      name: "Kitchen Humidity"
+    update_interval: 3s
+
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO5
+      mode: INPUT_PULLDOWN
+    name: "Toilet Motion Sensor"
+    device_class: motion
+
+- platform: gpio
+    pin:
+      number: GPIO6
+      mode: INPUT_PULLDOWN
+    name: "Kitchen Motion Sensor"
+    device_class: motion
