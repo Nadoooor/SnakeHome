@@ -209,3 +209,299 @@ And then i can work on the yaml file for the relays and also the HAOS configurat
 
 ### Recording links (6.3 hours):
 - https://lapse.hackclub.com/timelapse/7yJxWss80vJH 
+
+
+## Entry 4
+- Author: Nader
+- Date: 1/7/2026
+
+### Content
+
+Well, yeah as i said the I2C bus can't drive more then one same address sensor. So, yeah i needed to add am I2C Multiplexer. 
+
+Soooo, i did the most thing i hate, which is editing the PCB again.
+
+Starting with the schematic. I searched a lil about an I2C multiplexer module that i can use with these sensors. 
+
+Well, i found many modules but i prefered using an SMD module to integret with the PI Hat directly.
+
+So, i added the symbol, and search a lil on how to connect it, and found that i need to use two pullup resistors on each I2C bus
+. Even the I2C input bus. So, i added all the pullup resistors and connected them to each I2C pins in the module like that. 
+
+![alt text](Photos/Journal/I2C_Multi.png)
+
+After connecting the pullup resistors, i connected lables for each I2C bus, and connected 4 Pins for the remaining I2C buses that iam not using while connected the 4 Temp sensors to the first 4 Buses.
+
+After that, i Assigned all the sensors and the I2C buses (Even the assigned pin headers) a new Footprint for a JST connector instead of a PinHeader that can be disconnected easly. 
+
+![alt text](Photos/Journal/JST_Connector.png)
+
+After assigning all the Connectors and the I2C multiplexer.
+
+I found that the Pull up resistors will take a super masive place, so i decided to search about smaller SMD resistors i can use. 
+
+And i found the 0402 size the best for this application. So, i assigned them, and then i switched to the PCB editor.
+
+So, after that, i need to find a good pattern that i can follow so i can try to trace them all cleanly and without a mess.
+
+So, i i found that i can trace all the resisors besides the I2C multiplexer, each next to its pin. like this:
+
+![alt text](/Photos/Journal/PUresistors.png)
+
+and after connecting the resistors, i can connect all the I2C buses from inside the I2C multiplexer footprint, to the top and the bottom of the footprint. like that
+
+![alt text](/Photos/Journal/Buses_Pattern.png)
+
+And after connecting all the Buses, I can just use a Zone fill to connect all the GNDs, and then just connected the two Motion sensors to the their pins in the Pi's. 
+
+After connecting this also, i finished the PCB and Exported the 3D PCB.
+
+And that's it for this session. Next i will need to polish the 3D case and add the new Pi Hat.
+
+### Recording links (3.3 hours):
+- https://lapse.hackclub.com/timelapse/xZ0LxxVgFc7T
+
+## Entry 5
+- Author: Nader
+- Date: 4/7/2026 
+
+### Content
+
+Well, yay i won't touch the PCB again. (I wish)
+
+Ok, at this session i will need to work on the 3D case and assembly and i will need to polish it more, 'cause it seems a lil brick like now. 
+
+Ok, i think this is the first Polishing phase for this case.
+
+Well, because the project name is "SnakeHome", and the description literaly is saying a Snake-Styled home assistant device. 
+
+So it is super normal to add snake textures and faces. (I hope it is really like a snake not a frog now)
+
+So, my first thoughts was about to get a snake image and convert it to a DXF file and add it to the case's wall. Well, that is not a bad idea, but i can't make all the walls just like that. 
+
+So i just added one image. 
+
+![alt text](/Photos/Journal/Extruded_Snake.png)
+
+TBH this one was kinda hard to add, as fusion was kinda buggy when i try to select all the sketch entities of the snake and move them. 
+
+I kept trying till i finished it.
+
+After that, i got an other idea, which is to make triangles on the case and extrude cut them and curve the sharp triangle sides.
+
+So i needed to draw first a reference rectangle so i can make them aligned in the center and to each other.
+
+So i ended up with something like this
+
+![alt text](/Photos/Journal/Tris.png)
+
+And yeah it looks cool tbh for me.
+
+Well, after these trianlges.
+
+I got an other idea to make the case it self looks like a snake Head. So, I searched about a good drawen snake head and found a prety good one. So i also converted it into a DXF file and imported it. 
+
+And here is the nightmare. Fusion was soooooooo super buggy when i try move the sketch entites one millimeter. 
+
+So i search for another way to add the shape to the case.
+
+Well, i found a kinda good one. It is to add the DXF file to an individual Part Studio which i can extrude directly the faces into it. And deal the snake head as bodies not thousends of sketch entities, So, ok that was a great option for me tbh.
+
+So i took the bodies of the snake head and added it to the assembly and thought on where i will add it around the case.
+
+At first i thought to place it on the very back side, but i prefered adding it near to the case's Top cover.
+
+And i tried to add it and delete the additional parts preventing any access to the inside of the Case.
+
+Well i ended up with something like this, after changing the colors.
+
+![alt text](/Photos/Journal/SnakeHead.png)
+
+So yeah it looks so awesome (Even while it is kinda looks like a frog not a snake)
+
+And yeah that's it for this polishing try. 
+
+Next time i will need to add another triangles to the other side near the Pi type C. 
+
+### Recording links (3 hours):
+- https://lapse.hackclub.com/timelapse/rP8YhDRfef3z
+
+## Entry 6: 
+- Author: Nader
+- Date: 5/7/2026 
+
+### Content
+
+Well, in this session i saw a sooo stupid error that was not solvable.
+
+ok, well when i started working this time. 
+
+i faced as stupid bug, when i try to move the 3D bottom case, the whole fusion360 crashes. Without any explnation. 
+
+it literaly keeps crashing each time i try to do any thing. After sooo many trials, i couldn't find the problem. 
+
+So i just deleted the whole asssembly and redid it all.
+
+This time i kept naming everything i make in the timeline, but yeah this time i made everything quickly them before as i was knowing what iam doing. 
+
+And yeah this all was because of that some sync in fusion decided to rotate the case without the other assembled things. 
+So all the holes i made and so on were not aligned with the components. 
+
+So that's why i was trying to rotate the case itself. 
+
+well, it is now good and aligned. So i started with the triangles i said i will make last time. 
+
+So i made them with the same way i made the trianlges in the other side. 
+
+![alt text](/Photos/Journal/Tris2.png)
+
+And just finished them and tbh i was soo exhusted so i endedd this for today. 
+The troubleshooting took all my breath.
+
+### Recording links (2.5 hours):
+- https://lapse.hackclub.com/timelapse/ZdadXVKqlE6r
+
+
+## Entry 7: 
+- Author: Nader
+- Date: 6/7/2026
+
+### Content
+
+Well, iam so close to finish this all. 
+
+For this session i made a lot of things, So i will need to brick this out in a good way
+
+Umm, i Started by thinking how i will hang the project on the wall. 
+
+So the easiest thing was to just make two holes for the screws, holes with a special shape that lets you to mount and unmount the device without unscrew nails. 
+
+It is something like this. 
+
+![alt text](/Photos/Journal/wallnail.png)
+
+Well i didn't find a real DXF file for this. SOOOO i just designed it myself.
+
+I made a hole with M3 screws dimensions So i can mount it using M3 screws, i made it So like the hole i saw.
+
+![alt text](/Photos/Journal/myscrewhole.png)
+
+After that tbh, i felt that the project is missing something. it feels that the project needs some glowing NEOs.
+
+Sooooooo, yeah i will use NEO sticks and will make for them a connector on the PCB and screw holes.
+
+Starting the the PCB connector. (I know i said i won't this again but trust me this is legit)
+
+Well, i focused on the PCB itself first to find the GPIO iam gonna use that is near to an empty place. 
+
+So i found the pin, and added the NEO stick symbol in the schematic, and then connected it to the pin i choosed.
+
+Leting me to find a SUPER PERFECT LOCATION FOR ITTT. it is like this place was made for it. 
+
+IT is close to the pin and to the 5V trace and of course the fill zone GND.
+
+So i added the footprint and easly traced it.
+
+![alt text](/Photos/Journal/NEOPCB.png)
+
+After editing the PCB, well, tbh there is no need to update it in the assembly anyways as it won't change anything like the dimensions or anything. I need to save my internet limited qouta :c 
+
+So, i just added the neostick 3D model. 
+
+Placed them in good places inside the case, and then i started to "project" the screw holes on the stick on the internal wall of the case and started extrude cut them. 
+
+but when i went to add the inserts, i didn't find an M2 inserts (Didn't also catch that i can make my own size)
+
+So i just downloaded the model from the internet. 
+
+But i then relaized that i can make my own size when i went to add the screws, since i made my own M2 screw for them. 
+
+and that's it for them i repeated this for all the 3D sticks. 
+
+![alt text](/Photos/Journal/Assemstick.png)
+
+After adding these Neo sticks, i felt that all the snake face pieces needs to be rainforced in a more practical way. 
+
+So i decided to add small pieces to push inside the case and glue them. 
+
+![alt text](/Photos/Journal/facesticks.png)
+
+well, after that, i fully finished the 3D assembly. and iam ready to start with the firmware. 
+
+Well, this phase is a special phase. as i will need a lot of research and configurations.
+
+So, iam gonna explain what iam did based on this research. 
+
+well, first for all the wireless relays. iam gonna need a yaml file for ESPhome on these ESP12e chips. So i wrote the yaml to control relay pins as a regular on/off switch using the GPIOs i found on the user manual of the relays. 
+
+And i found a GUI config writter that can help me with that. So, i just used it to know how to write configs and then i just copied pasted the swtich code and also added my creds and used an online builder to build the code 'cause i don't want to download many package just to build this small yaml.
+
+The online builder was this [website](https://esphome-online-compiler.pages.dev/) that is using github actions to build the yaml. 
+
+after using it and building the binaries i addded them to the repo
+
+After that i needed to add the sensors, so first i found that i need to enable the I2C buses. So i found this [guide](https://www.abelectronics.co.uk/kb/article/1116/using-i2c-devices-with-home-assistant-on-the-raspberry-pi) to enable them on HAOS. and after that i can use an ESPhome integration to use the GPIOs from the pi on HAOS. or the gpio-haos extension but dk if it will has I2C. well, after this i wrote the yaml [configration](Firmware/configuration.yaml), that has the I2C multiplexer drivers and bus iam using and the sensors iam gonna use. 
+
+and for the motion sensors i just used binary sensors for them.
+
+and that's it for the configurations and yamls of this firmware.
+
+After that i started working on tiding up the repo and making the BOM. 
+
+And yeah i remembered that i didn't add a small usb microphone for the Voice assistant configuration iam gonna make (and linked the toturial on the readme)
+
+So, i added the 3D model to the assembly and added it to the BOM too.
+
+![alt text](/Photos/Journal/mic.png)
+
+And that's it for this session, next iam gonna render i guess.
+
+### Recording links (5.13 hours): 
+- https://lapse.hackclub.com/timelapse/g5u17ZrcEpg7
+- https://lapse.hackclub.com/timelapse/cG0KXqlFQet3
+
+
+## Entry 8 (Last one i guess):
+- Author: Nader
+- Date: 7/7/2026
+
+### Content
+
+Well, this one would be so cool. 
+
+Umm i started rendering the 3D case and tried to get great photos from it.
+
+Soooo, i learned two things iam gonna say here.
+
+the first one that i can add an environment from the internet and the second one that THErE IS leDssss
+
+Well, the second one got me.
+
+So, i started adding appearances for the parts, and for the NEOs and the screen, i added LED and adjusted the brightness and the colors. and made them look soo cool.
+
+And also added a new environment that has a better lighting but, i think i prefer the dark background.
+
+Well, i made these all cool renders.
+
+![alt text](Photos/Renders/SnakeHome_down_Right.png)
+
+![alt text](Photos/Renders/SnakeHome_good.png)
+
+![alt text](Photos/Renders/SnakeHome_Top_Rotated.png)
+
+![alt text](Photos/Renders/SnakeHome_Top.png)
+
+![alt text](Photos/Renders/SnakeHome.png)
+
+![alt text](Photos/Renders/SnakeHomeTest.png)
+
+Well, tbh this is the best renders i made till now. 
+
+Annnndd i think i finished this all yayyyy.
+
+
+### Recording links (1.18 hours):
+- https://lapse.hackclub.com/timelapse/9D-8rwojk8Bn
+
+
+## Thank you, reviewerrrr. ❤️
